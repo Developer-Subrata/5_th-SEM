@@ -1,4 +1,4 @@
-# Byte Stuffing
+# Byte Stuffing     011111101000000110000001100000010111111001111110
 sender=input("Enter Data You Want To Send : ")
 result=''
 flag='01111110'
