@@ -1,4 +1,4 @@
-# Byte Stuffing 
+# Byte De-Stuffing 
 sender1=input("Enter Data You Want To Send : ")
 sender=sender1[8:-8]
 result=''
