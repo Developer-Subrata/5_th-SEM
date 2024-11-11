@@ -1,18 +1,18 @@
 def dijkstra(graph, start):
-    distances = dict.fromkeys(graph, float('inf'))
+    distances = dict.fromkeys(graph, 9999)
     distances[start] = 0
     previous_nodes = dict.fromkeys(graph, None)
     unvisited = set(graph)
-
+    
     while unvisited:
-        current_vertex = min(unvisited, key=lambda v: distances[v])
-        unvisited.remove(current_vertex)
+        current_node = min(unvisited, key=lambda node: distances[node])
+        unvisited.remove(current_node)
 
-        for neighbor, weight in graph[current_vertex].items():
-            new_distance = distances[current_vertex] + weight
+        for neighbor, weight in graph[current_node].items():
+            new_distance = distances[current_node] + weight
             if new_distance < distances[neighbor]:
                 distances[neighbor] = new_distance
-                previous_nodes[neighbor] = current_vertex
+                previous_nodes[neighbor] = current_node
 
     return distances, previous_nodes
 
@@ -36,13 +36,11 @@ for vertex in graph:
 # Input the source node for which to generate the routing table
 sn = input("Enter the vertex for the routing table: ")
 
-# Apply Dijkstra's algorithm to get distances and paths from the source node
 distances, previous_nodes = dijkstra(graph, sn)
 
 # Print the routing table
 print(f"\n\tROUTING TABLE FOR *{sn}*\n")
 print("From\tTo\tCost\tVia\n")
-
 for vertex in graph:
     via = previous_nodes[vertex] if previous_nodes[vertex] else "-"
     print(f"{sn}\t{vertex}\t{distances[vertex]}\t{via}")
