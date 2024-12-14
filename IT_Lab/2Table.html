@@ -1,9 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Table</title>
+    <title>Colored Boxes</title>
+    <style>
+        .container {
+            display: flex;
+            width: 400px;
+            height: 200px;
+        }
+        .left-column, .right-row {
+            display: flex;
+        }
+        .left-column {
+            flex-direction: column;
+        }
+
+        .orange, .blue, .red, .green {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            height: 50%;
+        }
+
+        .orange { background-color: orange; }
+        .blue { background-color: blue; }
+        .red { background-color: red; height: 100%; }
+        .green { background-color: green; height: 100%; }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="left-column">
+            <div class="orange">ORANGE</div>
+            <div class="blue">BLUE</div>
+        </div>
+        <div class="right-row">
+            <div class="red">RED</div>
+            <div class="green">GREEN</div>
+        </div>
+    </div>
 </body>
 </html>
